@@ -1,9 +1,9 @@
 class PackingSlip
   attr_accessor :for_shipping, :for_royalty_department
 
-  def initialize
-    @for_shipping = false
-    @for_royalty_department = false
+  def initialize(options = {})
+    @for_shipping = options[:for_shipping] || false
+    @for_royalty_department = options[:for_royalty_department] ||false
   end
 
   def for_royalty_department?
