@@ -22,4 +22,13 @@ describe "An order processing system" do
       end
     end
   end
+
+  context "when paying for a membership" do
+    it "activates that membership" do
+      a_payment = Payment.new(:membership)
+      @ops.process(a_payment)
+      membership = Membership.find('Mary')
+      expect(membership.active?).to be true      
+    end
+  end
 end
